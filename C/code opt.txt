@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<string.h>
+
+struct operation {
+    char left;
+    char right[20];
+} op[10], pr[10];
+
+int main() {
+    int n,i,j,z = 0;
+    char temp;
+    
+    printf("Enter the no of values: ");
+    scanf("%d", &n);
+    
+    for(i = 0; i < n; i++) {
+        printf("LEFT: ");
+        scanf(" %c", &op[i].left);
+        printf("\tRIGHT: ");
+        scanf("%s", op[i].right);
+    }
+    
+    printf("Intermediate code: \n");
+    for(i = 0; i < n; i++) {
+        printf("%c = %s\n", op[i].left, op[i].right);
+    }
+    for (i = 0; i < n; i++) {
+        char temp = op[i].left;
+        for (j = i + 1; j < n; j++) {
+            if (strchr(op[j].right, temp)) {
+                pr[z++] = op[i];
+                break;
+            }
+        }
+    }
+
+    pr[z++] = op[n - 1];
+
+    printf("\nAfter Dead Code Elimination:\n");
+    for (i = 0; i < z; i++) {
+        printf("%c = %s\n", pr[i].left, pr[i].right);
+    }
+
+    return 0;
+}
+
