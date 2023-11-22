@@ -1,0 +1,69 @@
+def my_len(s):
+    count = 0
+    for char in s:
+        count += 1
+    return count
+
+def my_reverse(s):
+    reversed_str = ''
+    for char in s:
+        reversed_str = char + reversed_str
+    return reversed_str
+
+def my_count(s, char):
+    count = 0
+    for c in s:
+        if c == char:
+            count += 1
+    return count
+
+def my_find(s, char):
+    for i, c in enumerate(s):
+        if c == char:
+            return i
+    return -1
+
+def concat(str1,str2):
+    return str1 + str2
+
+def my_replace_char(s, old_char, new_char):
+    result = ''
+    for char in s:
+        result += new_char if char == old_char else char
+    return result
+
+def my_extract_digits(s):
+    digits = ''
+    for char in s:
+        if '0' <= char <= '9':
+            digits += char
+    return digits
+
+def my_is_palindrome(s):
+    s = s.lower()
+    reversed_str = my_reverse(s)
+    return s == reversed_str
+
+def my_isalpha(s):
+    for char in s:
+        if not ('a' <= char <= 'z' or 'A' <= char <= 'Z'):
+            return False
+    return True
+
+def my_isnumeric(s):
+    for char in s:
+        if not ('0' <= char <= '9'):
+            return False
+    return True
+
+print("Enter the character")
+ch = input()
+chup = ord(ch)
+chup = chup -32
+chup = chr(chup)
+print("\n its upper is", chup)
+
+s=input("enter a string : ")
+print("reversed:",my_reverse(s))
+print("length:",my_len(s))
+
