@@ -1,0 +1,16 @@
+word = 0
+zline = 0
+char = 0
+
+with open("read.txt", 'r') as file:
+    for line in file:
+
+        word += len(line.split())
+        zline += 1
+        char = len(line)
+    
+print("no of words" , word)
+print("no of lines", zline)
+print("no of char", char)
+
+
