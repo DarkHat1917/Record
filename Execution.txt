@@ -1,0 +1,16 @@
+Execution
+
+LEX : 
+
+lex filename.l
+
+gcc lex.yy.c -ll
+
+./a.out
+
+
+YACC :
+
+yacc -d filename.y
+
+gcc lex.yy.c y.tab.c -ll -lm
